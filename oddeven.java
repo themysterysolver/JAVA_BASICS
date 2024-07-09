@@ -12,5 +12,15 @@ public class oddeven{
             x=x+1;
             System.out.print(x+" ");
         }
+        int z=5;
+        boolean h=true;
+        System.out.println("");
+        while(h){
+            if(z==0){
+                break;
+            }
+            System.out.println("z:"+z);
+            z=z-1;
+        }
     }
 }
