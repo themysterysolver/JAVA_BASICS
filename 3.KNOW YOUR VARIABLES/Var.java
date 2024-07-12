@@ -67,7 +67,7 @@ public class Var{
         dogs[3].breed="beagle";
         dogs[3].sex='F';
         i=0;
-        System.out.print("");
+        System.out.println("");
         while(i<dogs.length){
             System.out.print(i+":");
             dogs[i].display();
