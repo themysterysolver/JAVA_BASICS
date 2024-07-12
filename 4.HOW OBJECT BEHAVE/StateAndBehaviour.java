@@ -27,7 +27,7 @@ public class StateAndBehaviour{
     public static void main(String[] args){
         Dog a=new Dog();
         a.size=45;
-        a.bark(a.size);
+        a.bark(a.size);//this is a argument
 
         Dog b=new Dog();
         b.size=70;
