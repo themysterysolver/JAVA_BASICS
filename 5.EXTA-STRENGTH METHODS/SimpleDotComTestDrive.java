@@ -2,7 +2,8 @@
 class SimpleDotComTestDrive{
     public static void main(Strting[] args){
         int[] location={1,2,3} //consecutive location for a single SHIP===dotcom
-        SimpleDotCom dot=new SimpleDotCom(location);//creating a location in array
+        SimpleDotCom dot=new SimpleDotCom();//creating a location in array
+        dot.SetLocation(location);
         String guess="2"; 
         String result=dot.ChekGuess(guess);
         Boolean testresult;
