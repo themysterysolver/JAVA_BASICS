@@ -1,4 +1,5 @@
 import java.io.*;
+//This game has a logical error,which counts the same no of guesses multiple time,this will be improved in next MODULE.
 public class GameHelper{
     public String getUserInput(String prompt){
         String inputLine=null;
