@@ -1,13 +1,45 @@
-//SUPERCLASS,SUBCLASS
-//With inheritance u can use memebers(instance varaibles,methods!!)
-//subclass EXTENDS from super class
-//EXTEND is a keyword!
-//we can override in methods of superclass in subclass and also add new functions!
-//IS-A used when subclass iherits a any of superclass.ie)all SUBCLASS of a super classclass IS-A SUPERCLASS!
-//JVM starts comilation at the lowest class.Then move upwards in INHERITANCE-TREE!
-//To check TYPE we can use HAS-A, does class-A HAS-A class-B...ie)class-A has an object of CLASS-B.
+//for cat family!!
+class Kingdom{
+    String Kname="ANIMALIA";
+}
+class Phylum extends Kingdom{
+    String Pname="CHORDATA";
+}
+class Classs extends Phylum{
+    String Cname="MAMMALIA";
+}
+class Order extends Classs{
+    String Oname="CARNIVORA";
+}
+class Family extends Order{
+    String Fname="FELIDAE";
+}
+class Genus extends Family{
+    String Gname;
+        public void setGname(String n){
+        Gname=n;
+    }
+}
+class Species extends Genus{
+    String Sname;
+    public void setSname(String n){
+        Sname=n;
+    }
+    void Printehh(){
+        System.out.println(Kname+" "+Pname+" "+Cname+" "+Oname+" "+Gname+" "+Sname);
+    }
+}
 class Inheritance{
     public static void main(String[] args){
+        Species Cat=new Species();
+        Cat.setGname("Felis");
+        Cat.setSname("Catus");
+        Cat.Printehh();
+        
+        Species Lion=new Species();
+        Lion.setGname("Panthera");
+        Lion.setSname("leo");
+        Lion.Printehh();
         
     }
 }
