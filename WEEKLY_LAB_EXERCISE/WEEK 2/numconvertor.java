@@ -22,11 +22,12 @@ class one_s{
     }
 }
 class two_s extends one_s{
-    String s2;
+    String s2,x;
     HashMap<Integer,String> digit_2=new HashMap<>();
     two_s(){
         digit_2.put(0,"");
         //for eleven to ninteen
+        digit_2.put(1,"");
         digit_2.put(2,"Twenty");
         digit_2.put(3,"Thirty");
         digit_2.put(4,"Fourty");
@@ -37,10 +38,28 @@ class two_s extends one_s{
         digit_2.put(9,"Ninenty");
     }
     void two(ArrayList<Integer> n){
-        one(n);
-        s2=digit_2.get(n.get(n.size()-2));
-        if( n.size()==2){
-            System.out.println("The Two digit number -----> "+s2+" "+s1);
+        if(n.get(n.size()-2)==1){
+            int b=n.get(n.size()-1);
+            HashMap<Integer,String> special_x=new HashMap<>();
+            special_x.put(0,"Ten");
+            special_x.put(1,"Eleven");
+            special_x.put(2,"Twelve");
+            special_x.put(3,"Thirteen");
+            special_x.put(4,"Fourteen");
+            special_x.put(5,"Fifteen");
+            special_x.put(6,"Sixteen");
+            special_x.put(7,"Seventeen");
+            special_x.put(8,"Eighteen");
+            special_x.put(9,"Nineteen");
+            x =special_x.get(b);
+            System.out.println("The Speical Two digit number -----> "+x);
+        }
+        else{
+            one(n);
+            s2=digit_2.get(n.get(n.size()-2));
+            if( n.size()==2){
+                System.out.println("The Two digit number -----> "+s2+" "+s1);
+            }
         }
     }
 }
@@ -49,8 +68,17 @@ class three_s extends two_s{
     void three(ArrayList<Integer> n){
         two(n);
         s3=digit_1.get(n.get(n.size()-3));
-        if(n.size()==3){
-            System.out.println("The Three digit number ----> "+s3+" Hundred and "+s2+" "+s1);
+        if(n.get(n.size()-3)==1){
+            if(n.get(n.size()-2)==1)
+                System.out.println("The Three digit number ----> "+s3+" Hundred "+x);  
+            else    
+                System.out.println("The Three digit number ----> "+s3+" Hundred "+s2+" "+s1);  
+        }
+        else if(n.size()==3){
+            if(n.get(n.size()-2)==1)
+                System.out.println("The Three digit number ----> "+s3+" Hundred and "+x);
+            else
+                System.out.println("The Three digit number ----> "+s3+" Hundred and "+s2+" "+s1);
         }
     }
 }
