@@ -17,9 +17,10 @@ class Dayoftheweek{
         mapp.put(0,"Sunday");
         mapp.put(1,"Monday");
         mapp.put(2,"Tueday");
-        mapp.put(3,"Thursday");
-        mapp.put(4,"Fridday");
-        mapp.put(5,"Saturday");
+        mapp.put(3,"Wednesday");
+        mapp.put(4,"Thursday");
+        mapp.put(5,"Fridday");
+        mapp.put(6,"Saturday");
         String f=mapp.get(d0);
         System.out.println("The day is "+f);
     }
