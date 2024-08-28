@@ -21,6 +21,10 @@ class LinkedList{
         display();
     }
     void insertEnd(int data){
+        if(head==null){
+            insertBeg(data);
+            return;
+        }
         Node newNode=new Node(data);
         Node current=head;
         Node prev=current;
@@ -33,25 +37,37 @@ class LinkedList{
     }
     //1->2->3->4->5->6
     void insertPos(int pos,int data){
-        int count=pos-1;
-        if (pos==1){
+        if (head == null && pos != 1) {
+            System.out.println("List is empty! Insert at position 1.");
+            return;
+        }
+        if(pos==1){
             insertBeg(data);
-        }
+        } 
         else{
-            Node newNode=new Node(data);
-            Node current=head;
-            while(count!=1){
-                current=current.next;
-                count--;
+            int count=pos-1;
+            if (pos==1){
+                insertBeg(data);
             }
-            Node temp=current.next;
-            current.next=newNode;
-            newNode.next=temp;
+            else{
+                Node newNode=new Node(data);
+                Node current=head;
+                while(count!=1){
+                    current=current.next;
+                    count--;
+                }
+                Node temp=current.next;
+                current.next=newNode;
+                newNode.next=temp;
+            }
+            display();
         }
-        display();
-
     }
     void insertAfterSpecific(int target,int data){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         Node current=head;
         Node newNode=new Node(data);
         Boolean flag=false;
@@ -73,6 +89,10 @@ class LinkedList{
         }
     }
     void insertBeforeSpecific(int target,int data){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         Node current=head;
         Node newNode=new Node(data);
         if(current.data==target){
@@ -99,10 +119,28 @@ class LinkedList{
     }
     /*-----------------------------------------------INSERTION-END-----------------------------------------------------------------*/ 
     void delBeg(){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
+        if(head.next==null){
+            head=null;
+            System.out.println("List is empty!");
+            return;
+        }
         head=head.next;
         display();
     }
     void delEnd(){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
+        if(head.next==null){
+            head=null;
+            System.out.println("List is empty!");
+            return;
+        }
         Node current=head;
         Node prev=current;
         while(current.next!=null){
@@ -113,6 +151,10 @@ class LinkedList{
         display();
     }
     void delPos(int pos){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         int count=pos-1;
         if (pos==1){
             delBeg();
@@ -128,6 +170,10 @@ class LinkedList{
         display();
     }
     void delVal(int target){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         Node current=head;
         if(current.data==target){
             delBeg();
@@ -152,6 +198,10 @@ class LinkedList{
     
     /* ----------------------------------------------DELETION-END--------------------------------------------------------------------*/
     void display(){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         Node current=head;
         while(current!=null){
             System.out.print(current.data+"->");
@@ -161,6 +211,10 @@ class LinkedList{
     }
     /*---------------------------------------------------DISPLAY------------------------------------------------------------------------ */
     void reverse(){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         if(head.next==null){
             return;
         }
@@ -180,6 +234,10 @@ class LinkedList{
     }
     /*-----------------------------------------------------------REVERSE--------------------------------------------------------------- */
     void count(){
+        if (head == null) {
+            System.out.println("NO OF NODES: 0");
+            return;
+        }
         Node current=head;
         int count=0;
         if(head.next==null){
@@ -194,6 +252,10 @@ class LinkedList{
     }
     /*-----------------------------------------------------------COUNT--------------------------------------------------------------- */
     void frequency(){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         HashMap<Integer,Integer> mapi=new HashMap<>();
         Node current=head;
         while(current!=null){
@@ -218,6 +280,10 @@ class LinkedList{
     }
     /*-------------------------------------------------------CONCATENATION-------------------------------------------------------------------------- */
     void sort(){
+        if(head==null){
+            System.out.println("List is empty!Try inserting first!");
+            return;
+        }
         display();
         ArrayList<Integer> arr=new ArrayList<>();
         Node current=head;
@@ -276,55 +342,115 @@ class LinkedList{
     /*-------------------------------------------REMOVE DUPLICATES------------------------------------------------------------------------------- */
 }
 class ll{
-    public static void main(String[] args){
-        LinkedList link=new LinkedList();
-        link.insertBeg(5);
-        link.insertBeg(4);
-        link.insertBeg(3);
-        link.insertBeg(2);
-        link.insertEnd(6);
-        link.insertEnd(7);
-        link.insertPos(2,100);
-        link.insertPos(3,300);
-        link.insertAfterSpecific(3,123);
-        link.insertAfterSpecific(10,123);
-        link.insertBeforeSpecific(3,6969);
-        link.insertBeforeSpecific(2,1004);
-        link.count();
-        link.delBeg();
-        link.delBeg();
-        link.delEnd();
-        link.delEnd();
-        link.delEnd();
-        link.delPos(1);
-        link.delPos(3);
-        link.delPos(2);
-        link.delVal(123);
-        link.insertEnd(6);
-        link.insertEnd(7);
-        link.reverse();
-        link.count();
-        link.frequency();
-        LinkedList link1=new LinkedList();
-        link1.insertBeg(1);
-        link1.insertBeg(1);
-        link1.insertBeg(2);
-        link1.insertBeg(3);
-        link1.insertBeg(4);
-        link1.concat(link.head);
-        link.sort();
-        link.insertPos(2,100);
-        link.insertPos(2,100);
-        link.insertPos(2,100);
-        link.insertPos(3,300);
-        link.insertPos(3,300);
-        link.insertPos(3,300);
-        link.insertPos(3,300);
-        link.insertEnd(10);
-        link.insertEnd(10);
-        link.insertEnd(10);
-        link.insertEnd(10);
-        link.insertEnd(10);
-        link.remDuplicate();
+    public static void main(String[] args) {
+        System.out.println("R.Prabhakara Arjun\n2022503003");
+        LinkedList link = new LinkedList();
+        Scanner scanner = new Scanner(System.in);
+        int choice, value, pos, target;
+        System.out.println("\nMenu:");
+        System.out.println("1. Insert at Beginning");
+        System.out.println("2. Insert at End");
+        System.out.println("3. Insert at Position");
+        System.out.println("4. Insert After Specific Value");
+        System.out.println("5. Insert Before Specific Value");
+        System.out.println("6. Delete from Beginning");
+        System.out.println("7. Delete from End");
+        System.out.println("8. Delete from Position");
+        System.out.println("9. Delete Specific Value");
+        System.out.println("10. Reverse List");
+        System.out.println("11. Count Nodes");
+        System.out.println("12. Frequency of Elements");
+        System.out.println("13. Concatenate Two Lists");
+        System.out.println("14. Sort List");
+        System.out.println("15. Remove Duplicates");
+        System.out.println("16. Display List");
+        System.out.println("17. Exit");
+        do {
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value to insert at beginning: ");
+                    value = scanner.nextInt();
+                    link.insertBeg(value);
+                    break;
+                case 2:
+                    System.out.print("Enter value to insert at end: ");
+                    value = scanner.nextInt();
+                    link.insertEnd(value);
+                    break;
+                case 3:
+                    System.out.print("Enter position: ");
+                    pos = scanner.nextInt();
+                    System.out.print("Enter value to insert: ");
+                    value = scanner.nextInt();
+                    link.insertPos(pos, value);
+                    break;
+                case 4:
+                    System.out.print("Enter target value: ");
+                    target = scanner.nextInt();
+                    System.out.print("Enter value to insert after " + target + ": ");
+                    value = scanner.nextInt();
+                    link.insertAfterSpecific(target, value);
+                    break;
+                case 5:
+                    System.out.print("Enter target value: ");
+                    target = scanner.nextInt();
+                    System.out.print("Enter value to insert before " + target + ": ");
+                    value = scanner.nextInt();
+                    link.insertBeforeSpecific(target, value);
+                    break;
+                case 6:
+                    link.delBeg();
+                    break;
+                case 7:
+                    link.delEnd();
+                    break;
+                case 8:
+                    System.out.print("Enter position to delete: ");
+                    pos = scanner.nextInt();
+                    link.delPos(pos);
+                    break;
+                case 9:
+                    System.out.print("Enter value to delete: ");
+                    target = scanner.nextInt();
+                    link.delVal(target);
+                    break;
+                case 10:
+                    link.reverse();
+                    break;
+                case 11:
+                    link.count();
+                    break;
+                case 12:
+                    link.frequency();
+                    break;
+                case 13:
+                    LinkedList link1 = new LinkedList();
+                    System.out.println("Enter values for the second list (enter -1 to stop):");
+                    while ((value = scanner.nextInt()) != -1) {
+                        link1.insertEnd(value);
+                    }
+                    link.concat(link1.head);
+                    break;
+                case 14:
+                    link.sort();
+                    break;
+                case 15:
+                    link.remDuplicate();
+                    break;
+                case 16:
+                    link.display();
+                    break;
+                case 17:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 17);
+
+        scanner.close();
     }
 }
