@@ -40,8 +40,8 @@ class LinkedList{
                 current=current.next;
             }
             prev.next=null;
-            display();
         }
+        display();
     }
     
     /* ----------------------------------------------DELETION-END--------------------------------------------------------------------*/
@@ -63,23 +63,44 @@ class LinkedList{
         }
     }
 }
-class stackll{
-    public static void main(String[] args){
-        LinkedList stack=new LinkedList();
-        stack.push(1);
-        stack.push(2);
-        stack.push(5);
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.push(1);
-        stack.peek();
-        stack.push(2);
-        stack.peek();
-        stack.push(5);
-        stack.peek();
+class stackll {
+    public static void main(String[] args) {
+        System.out.println("R.Prabhakara Arjun\n2022503003");
+        LinkedList stack = new LinkedList();
+        Scanner scanner = new Scanner(System.in);
+        int choice, value;
+        System.out.println("\nMenu:");
+        System.out.println("1. Push");
+        System.out.println("2. Pop");
+        System.out.println("3. Peek");
+        System.out.println("4. Display");
+        System.out.println("5. Exit");
 
+        do {
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value to push: ");
+                    value = scanner.nextInt();
+                    stack.push(value);
+                    break;
+                case 2:
+                    stack.pop();
+                    break;
+                case 3:
+                    stack.peek();
+                    break;
+                case 4:
+                    stack.display();
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 5);
+        scanner.close();
     }
 }
