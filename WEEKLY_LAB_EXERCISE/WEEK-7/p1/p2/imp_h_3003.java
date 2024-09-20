@@ -1,5 +1,6 @@
+package p2;
 import java.util.*;
-class animal{
+public class animal{
     String scientific_name="";
     String family="Animalia";
     String name="";
@@ -9,7 +10,9 @@ class animal{
     void details(){
         System.out.println("FAMILY:"+family+" Name:"+name);
     }
-    public void sound(){}
+    public void sound(){
+        System.out.println("drow........");
+    }
 
     void details(Boolean a){
         if(a){
@@ -26,7 +29,7 @@ class animal{
         System.out.println("-----------------------------------------------");
     }
 }
-class dog extends animal{
+public class dog extends animal{
     dog(){
         scientific_name="Canis lupus familiaris";
     }
@@ -35,7 +38,7 @@ class dog extends animal{
     }
 
 }
-class cat extends animal{
+public class cat extends animal{
     cat(){
         scientific_name="felis catus";
     }
@@ -43,22 +46,11 @@ class cat extends animal{
         System.out.println("meow!meow!!");
     }
 }
-class lion extends animal{
+public class lion extends animal{
     lion(){
         scientific_name="panthera leo";
     }
     public void sound(){
         System.out.println("ROARS!!");
-    }
-}
-public class heirarchy_3003 {
-    public static void main(String[] args) {
-        System.out.println("R.Prabhakara Arjun\n2022503003\n");
-        dog a=new dog();
-        a.theMethod();
-        lion b=new lion();
-        b.theMethod();
-        cat c=new cat();
-        c.theMethod();
     }
 }
