@@ -5,7 +5,7 @@ class Game{
         System.out.println("1.HELLOHH!!");
     }
 }
-private class Gameh extends Game{
+class Gameh extends Game{ //private class Gameh....
     void Printehh(){
         super.Printehh();
         System.out.println("2.HELLOHH!!");
@@ -22,6 +22,6 @@ class supp{
         Gameh a=new Gameh();
         a.Printehh();
         Gameh2 b=new Gameh2();
-        a.Printehh();
+        b.Printehh();
     }
 }
