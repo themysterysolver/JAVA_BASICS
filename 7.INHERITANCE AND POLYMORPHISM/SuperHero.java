@@ -1,3 +1,4 @@
+//instance varaibles are not overriden
 class Supps{
     String suit,tights,specialPower;
     void putOnSuit(){}
