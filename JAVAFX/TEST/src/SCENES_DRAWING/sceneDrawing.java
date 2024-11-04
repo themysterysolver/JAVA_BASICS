@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -39,8 +40,13 @@ public class sceneDrawing extends Application {
         line.setOpacity(1);
         line.setRotate(45);
 
+        Polygon triangle=new Polygon();
+        triangle.getPoints().setAll(200.00,300.0,200.00,200.00,300.00,300.00);
+        triangle.setFill(Color.ORANGE);
+
         root.getChildren().add(text);
         root.getChildren().add(line);
+        root.getChildren().add(triangle);
         stage.setScene(scene);
         stage.show();
     }
