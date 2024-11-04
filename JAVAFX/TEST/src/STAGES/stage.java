@@ -2,6 +2,7 @@ package STAGES;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class stage extends Application{
@@ -13,7 +14,7 @@ public class stage extends Application{
     public void start(Stage stage) throws Exception {
         //Stage s=new Stage(); //Creating a new stage!!
         Group root=new Group();
-        Scene scene=new Scene(root);
+        Scene scene=new Scene(root, Color.BLACK);
         stage.setScene(scene);
         stage.show();
     }
