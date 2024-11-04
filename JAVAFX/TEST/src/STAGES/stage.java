@@ -2,6 +2,7 @@ package STAGES;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
@@ -26,6 +27,9 @@ public class stage extends Application{
         //stage.setX(0);
         //stage.setY(0);
 
+        stage.setFullScreen(true);
+        stage.setFullScreenExitHint("Click Q to escape!");
+        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("Q"));
         stage.setScene(scene);
         stage.show();
     }
