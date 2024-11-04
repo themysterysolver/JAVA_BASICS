@@ -3,7 +3,10 @@ package SCENES_DRAWING;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
@@ -44,9 +47,24 @@ public class sceneDrawing extends Application {
         triangle.getPoints().setAll(200.00,300.0,200.00,200.00,300.00,300.00);
         triangle.setFill(Color.ORANGE);
 
+        Circle circle=new Circle();
+        circle.setCenterX(350);
+        circle.setCenterY(350);
+        circle.setRadius(50);
+        circle.setFill(Color.VIOLET);
+
+        Image image=new Image("hello.png");
+        ImageView imageview=new ImageView(image);
+        imageview.setX(300);
+        imageview.setY(10);
+        imageview.setFitWidth(50);
+        imageview.setFitHeight(50);
+
         root.getChildren().add(text);
         root.getChildren().add(line);
         root.getChildren().add(triangle);
+        root.getChildren().add(circle);
+        root.getChildren().add(imageview);
         stage.setScene(scene);
         stage.show();
     }
