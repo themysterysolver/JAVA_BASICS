@@ -23,6 +23,9 @@ public class stage extends Application{
         stage.setHeight(420);
         stage.setResizable(false);
 
+        //stage.setX(0);
+        //stage.setY(0);
+
         stage.setScene(scene);
         stage.show();
     }
