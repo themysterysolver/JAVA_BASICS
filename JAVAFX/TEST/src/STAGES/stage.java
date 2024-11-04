@@ -18,6 +18,11 @@ public class stage extends Application{
         stage.setTitle("My first STAGE!!");
         Image icon=new Image("hello.png");
         stage.getIcons().add(icon);
+
+        stage.setWidth(420);
+        stage.setHeight(420);
+        stage.setResizable(false);
+
         stage.setScene(scene);
         stage.show();
     }
