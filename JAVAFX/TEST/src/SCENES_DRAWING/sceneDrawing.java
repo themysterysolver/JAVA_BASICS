@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -28,7 +29,18 @@ public class sceneDrawing extends Application {
         text.setFill(Color.DARKGREEN);
         text.setFont(Font.font("Verdana"));
 
+        Line line=new Line();
+        line.setStartX(100);
+        line.setStartY(100);
+        line.setEndX(200);
+        line.setEndY(200);
+        line.setStrokeWidth(10);
+        line.setStroke(Color.RED);
+        line.setOpacity(1);
+        line.setRotate(45);
+
         root.getChildren().add(text);
+        root.getChildren().add(line);
         stage.setScene(scene);
         stage.show();
     }
