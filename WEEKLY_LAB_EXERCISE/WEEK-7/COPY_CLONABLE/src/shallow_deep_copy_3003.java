@@ -11,9 +11,18 @@ class dog implements Cloneable{
     protected Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
-    void displayDetails(){
-        System.out.println("Name of the "+name+".Breed is "+breed+".THe owner "+user_thing.name+".His number is "+user_thing.number);
+    void displayDetails() {
+        System.out.println("Name of the " + name + ".Breed is " + breed + ".THe owner " + user_thing.name + ".His number is " + user_thing.number);
     }
+    /*
+    protected void finalize() throws Throwable {
+        try {
+            System.out.println("Object is being finalized.");
+        } finally {
+            // Ensure the base class finalize is also called
+            super.finalize();
+        }
+    }*/
 }
 class User implements Cloneable{
     String name;
@@ -38,11 +47,12 @@ public class shallow_deep_copy_3003 {
             System.out.println("SHALLOW COPY:\ncomparing obj and clone:"+(d1==d2)+".comapring obj user and clone:"+(d1.user_thing==d2.user_thing));
             d2.user_thing=(User) d2.user_thing.clone();
             System.out.println("DEEP COPY:\ncomparing obj and clone:"+(d1==d2)+".comapring obj user and clone:"+(d1.user_thing==d2.user_thing));
+            d1=null;
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-
-
+        System.gc();
+        System.out.println("garbage collection failed!!!");
 
     }
 }
